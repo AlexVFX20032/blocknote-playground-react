@@ -13,15 +13,14 @@ import { transitionBlock } from "../blocks/transitionBlock";
 const BlockNoteEditor = () => {
   // Crea una nueva instancia del editor con los bloques personalizados
   const editor = useCreateBlockNote({
-    schema: {
-      blockSpecs: {
-        scene: sceneBlock,
-        action: actionBlock,
-        character: characterBlock,
-        parenthetical: parentheticalBlock,
-        dialogue: dialogueBlock,
-        transition: transitionBlock,
-      },
+    blockSpecs: {
+      // Incluye los bloques por defecto
+      scene: sceneBlock,
+      action: actionBlock,
+      character: characterBlock,
+      parenthetical: parentheticalBlock,
+      dialogue: dialogueBlock,
+      transition: transitionBlock,
     },
     initialContent: [
       {
