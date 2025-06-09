@@ -25,32 +25,8 @@ const BlockNoteEditor = () => {
     },
     initialContent: [
       {
-        type: "scene",
-        props: { text: "INT. OFICINA - DÍA" },
-      },
-      {
-        type: "action",
-        props: { text: "JUAN, un hombre de 30 años, está sentado frente a su escritorio. Mira fijamente la pantalla de su computadora." },
-      },
-      {
-        type: "character",
-        props: { text: "JUAN" },
-      },
-      {
-        type: "parenthetical",
-        props: { text: "suspirando" },
-      },
-      {
-        type: "dialogue",
-        props: { text: "No puedo creer que haya llegado a esto." },
-      },
-      {
-        type: "action",
-        props: { text: "Se recuesta en su silla y cierra los ojos por un momento." },
-      },
-      {
-        type: "transition",
-        props: { text: "CORTE A:" },
+        type: "paragraph",
+        content: "Editor de Guiones - Usa / para agregar bloques personalizados",
       },
     ],
   });
