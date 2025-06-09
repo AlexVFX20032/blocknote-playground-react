@@ -3,6 +3,7 @@ import "@blocknote/core/fonts/inter.css";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
 import { useCreateBlockNote } from "@blocknote/react";
+import { BlockNoteSchema, defaultBlockSpecs } from "@blocknote/core";
 import { sceneBlock } from "../blocks/sceneBlock";
 import { actionBlock } from "../blocks/actionBlock";
 import { characterBlock } from "../blocks/characterBlock";
@@ -10,18 +11,25 @@ import { parentheticalBlock } from "../blocks/parentheticalBlock";
 import { dialogueBlock } from "../blocks/dialogueBlock";
 import { transitionBlock } from "../blocks/transitionBlock";
 
+// Crear el schema personalizado que incluye los bloques por defecto y los personalizados
+const schema = BlockNoteSchema.create({
+  blockSpecs: {
+    // Incluir los bloques por defecto
+    ...defaultBlockSpecs,
+    // Agregar nuestros bloques personalizados
+    scene: sceneBlock,
+    action: actionBlock,
+    character: characterBlock,
+    parenthetical: parentheticalBlock,
+    dialogue: dialogueBlock,
+    transition: transitionBlock,
+  },
+});
+
 const BlockNoteEditor = () => {
-  // Crea una nueva instancia del editor con los bloques personalizados
+  // Crea una nueva instancia del editor con el schema personalizado
   const editor = useCreateBlockNote({
-    blockSpecs: {
-      // Incluye los bloques por defecto
-      scene: sceneBlock,
-      action: actionBlock,
-      character: characterBlock,
-      parenthetical: parentheticalBlock,
-      dialogue: dialogueBlock,
-      transition: transitionBlock,
-    },
+    schema,
     initialContent: [
       {
         type: "paragraph",
