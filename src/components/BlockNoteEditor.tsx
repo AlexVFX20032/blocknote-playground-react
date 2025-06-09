@@ -3,49 +3,65 @@ import "@blocknote/core/fonts/inter.css";
 import { BlockNoteView } from "@blocknote/mantine";
 import "@blocknote/mantine/style.css";
 import { useCreateBlockNote } from "@blocknote/react";
+import { sceneBlock } from "../blocks/sceneBlock";
+import { actionBlock } from "../blocks/actionBlock";
+import { characterBlock } from "../blocks/characterBlock";
+import { parentheticalBlock } from "../blocks/parentheticalBlock";
+import { dialogueBlock } from "../blocks/dialogueBlock";
+import { transitionBlock } from "../blocks/transitionBlock";
 
 const BlockNoteEditor = () => {
-  // Creates a new editor instance with some initial content
+  // Crea una nueva instancia del editor con los bloques personalizados
   const editor = useCreateBlockNote({
+    schema: {
+      blockSpecs: {
+        scene: sceneBlock,
+        action: actionBlock,
+        character: characterBlock,
+        parenthetical: parentheticalBlock,
+        dialogue: dialogueBlock,
+        transition: transitionBlock,
+      },
+    },
     initialContent: [
       {
-        type: "paragraph",
-        content: "Welcome to BlockNote! 👋",
+        type: "scene",
+        props: { text: "INT. OFICINA - DÍA" },
       },
       {
-        type: "paragraph",
-        content: "This is a demo of the BlockNote rich text editor. Try typing, creating blocks, and exploring all the features:",
+        type: "action",
+        props: { text: "JUAN, un hombre de 30 años, está sentado frente a su escritorio. Mira fijamente la pantalla de su computadora." },
       },
       {
-        type: "bulletListItem",
-        content: "Type '/' to see all available blocks",
+        type: "character",
+        props: { text: "JUAN" },
       },
       {
-        type: "bulletListItem", 
-        content: "Use drag handles to reorder blocks",
+        type: "parenthetical",
+        props: { text: "suspirando" },
       },
       {
-        type: "bulletListItem",
-        content: "Select text to see formatting options",
+        type: "dialogue",
+        props: { text: "No puedo creer que haya llegado a esto." },
       },
       {
-        type: "heading",
-        content: "Features",
+        type: "action",
+        props: { text: "Se recuesta en su silla y cierra los ojos por un momento." },
       },
       {
-        type: "paragraph",
-        content: "BlockNote supports headings, lists, tables, images, and much more. It's built with TypeScript and provides a great developer experience.",
+        type: "transition",
+        props: { text: "CORTE A:" },
       },
     ],
   });
 
-  // Renders the editor instance using a React component
+  // Renderiza la instancia del editor usando un componente React
   return (
     <div className="w-full max-w-4xl mx-auto">
       <BlockNoteView 
         editor={editor} 
         theme="light"
-        className="min-h-[500px]"
+        className="min-h-[500px] screenplay-editor"
       />
     </div>
   );

@@ -11,8 +11,8 @@ const Header = () => {
               <FileText className="h-6 w-6" />
             </div>
             <div>
-              <h1 className="text-3xl font-bold">BlockNote Demo</h1>
-              <p className="text-blue-100 mt-1">A beautiful, modern rich text editor</p>
+              <h1 className="text-3xl font-bold">Editor de Guiones</h1>
+              <p className="text-blue-100 mt-1">Editor profesional para guiones cinematográficos</p>
             </div>
           </div>
           <a
@@ -22,7 +22,7 @@ const Header = () => {
             className="flex items-center space-x-2 bg-white/20 hover:bg-white/30 px-4 py-2 rounded-lg transition-colors"
           >
             <Github className="h-4 w-4" />
-            <span>View on GitHub</span>
+            <span>Ver en GitHub</span>
           </a>
         </div>
       </div>
