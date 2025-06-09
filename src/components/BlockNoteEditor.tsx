@@ -42,7 +42,7 @@ const BlockNoteEditor = () => {
   return (
     <div className="w-full max-w-4xl mx-auto">
       <BlockNoteView 
-        editor={editor} 
+        editor={editor as any}
         theme="light"
         className="min-h-[500px] screenplay-editor"
       />
